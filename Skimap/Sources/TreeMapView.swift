@@ -23,9 +23,6 @@ struct TreeMapView: View {
                         isSelected: selectedNode?.id == tile.node.id,
                         isHovered: hoveredNode?.id == tile.node.id
                     )
-                    // .equatable() lets SwiftUI skip body re-execution for tiles
-                    // whose isSelected / isHovered flags haven't changed.
-                    .equatable()
                     .frame(width: tile.rect.width, height: tile.rect.height)
                     .offset(x: tile.rect.minX, y: tile.rect.minY)
                     .onTapGesture {
@@ -56,16 +53,10 @@ struct TreeMapView: View {
 
 // MARK: - TileView
 
-private struct TileView: View, Equatable {
+private struct TileView: View {
     let tile: Tile
     let isSelected: Bool
     let isHovered: Bool
-
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.tile.id == rhs.tile.id &&
-        lhs.isSelected == rhs.isSelected &&
-        lhs.isHovered  == rhs.isHovered
-    }
 
     private var isDirectory: Bool { tile.node.isDirectory }
 
