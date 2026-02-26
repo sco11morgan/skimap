@@ -44,6 +44,30 @@ Then press **⌘R** to build and run. No dependencies, no package manager.
 
 Files smaller than 1 MB are rendered but not interactive, keeping focus on the items that matter.
 
+## Releasing
+
+Releases are built with `make` and published via the `gh` CLI.
+
+**1. Tag the commit**
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+**2. Build and publish**
+```bash
+make release VERSION=1.0.0
+```
+
+This will archive the project in Release configuration, export a signed `.app`, zip it, and create a GitHub release with auto-generated notes from commits since the last tag. The zip is saved to `build/Skimap-<version>.zip`.
+
+To build a zip locally without publishing:
+```bash
+make zip VERSION=1.0.0
+```
+
+> **Note:** Because the app is not notarised, macOS Gatekeeper will block it on first launch. Users can right-click → **Open** to bypass this once.
+
 ## Project structure
 
 ```
