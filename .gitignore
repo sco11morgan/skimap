@@ -1,0 +1,10 @@
+# Xcode user-specific state (contains local username, open tabs, breakpoints)
+xcuserdata/
+*.xcuserstate
+
+# Xcode derived build output
+DerivedData/
+build/
+
+# Claude local settings
+.claude/

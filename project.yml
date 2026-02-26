@@ -1,0 +1,44 @@
+name: Skimap
+options:
+  bundleIdPrefix: com.skimap
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+
+settings:
+  SWIFT_VERSION: "5.9"
+  MACOSX_DEPLOYMENT_TARGET: "13.0"
+  ENABLE_HARDENED_RUNTIME: YES
+
+targets:
+  Skimap:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: Skimap/Sources
+        excludes:
+          - "*.plist"
+          - "*.entitlements"
+    info:
+      path: Skimap/Sources/Info.plist
+      properties:
+        CFBundleDisplayName: Skimap
+        CFBundleIdentifier: com.skimap.app
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        NSHumanReadableCopyright: ""
+        LSApplicationCategoryType: public.app-category.utilities
+    entitlements:
+      path: Skimap/Sources/Skimap.entitlements
+    settings:
+      PRODUCT_NAME: Skimap
+      PRODUCT_BUNDLE_IDENTIFIER: com.skimap.app
+      CODE_SIGN_STYLE: Automatic
+      DEVELOPMENT_TEAM: ""
+      SWIFT_VERSION: "5.9"
+      MACOSX_DEPLOYMENT_TARGET: "13.0"
+      ENABLE_HARDENED_RUNTIME: YES
+      INFOPLIST_FILE: Skimap/Sources/Info.plist
+      CODE_SIGN_ENTITLEMENTS: Skimap/Sources/Skimap.entitlements
