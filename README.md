@@ -68,6 +68,16 @@ make zip VERSION=1.0.0
 
 > **Note:** Because the app is not notarised, macOS Gatekeeper will block it on first launch. Users can right-click → **Open** to bypass this once.
 
+## Scan cache
+
+Scan results are cached to disk so reopening the same folder is instant. The cache lives at:
+
+```
+~/Library/Caches/com.skimap.app/
+```
+
+Each scanned path gets its own JSON file (named by a hash of the path). The cache is never included in the app bundle — it is created and managed entirely on the user's machine. It is safe to delete at any time; the app will re-scan from scratch on next open.
+
 ## Project structure
 
 ```
